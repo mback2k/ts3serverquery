@@ -70,4 +70,8 @@ public class StringMap implements Serializable {
 		}
 		return strings;
 	}
+
+	public int hashCode() {
+		return this.getClass().hashCode() ^ this.hashmap.hashCode();
+	}
 }

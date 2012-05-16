@@ -18,7 +18,7 @@ public class Connection implements Serializable {
 	
 	@Override
 	public int hashCode() {
-		return this.sq.hashCode() ^ (int)Connection.serialVersionUID;
+		return this.getClass().hashCode() ^ this.sq.hashCode();
 	}
 	
 	public String getHelp() {

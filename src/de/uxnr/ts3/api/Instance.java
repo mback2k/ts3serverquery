@@ -18,7 +18,7 @@ public class Instance implements Serializable {
 	
 	@Override
 	public int hashCode() {
-		return this.sq.hashCode() ^ (int)Instance.serialVersionUID;
+		return this.getClass().hashCode() ^ this.sq.hashCode();
 	}
 	
 	public int getUptime() {

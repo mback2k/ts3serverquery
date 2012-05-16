@@ -19,7 +19,7 @@ public class Server implements Serializable, Comparable<Server> {
 	
 	@Override
 	public int hashCode() {
-		return this.getID() ^ (int)Server.serialVersionUID;
+		return this.getClass().hashCode() ^ this.getID();
 	}
 	
 	@Override

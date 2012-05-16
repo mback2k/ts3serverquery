@@ -17,4 +17,8 @@ public class ServerQueryError extends Error {
 	public String getMessage() {
 		return this.msg;
 	}
+
+	public int hashCode() {
+		return this.getClass().hashCode() ^ this.msg.hashCode() ^ this.id;
+	}
 }

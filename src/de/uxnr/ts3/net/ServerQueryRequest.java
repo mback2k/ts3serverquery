@@ -51,4 +51,8 @@ public class ServerQueryRequest {
 		}
 		return request;
 	}
+	
+	public int hashCode() {
+		return this.getClass().hashCode() ^ this.sq.hashCode() ^ this.command.hashCode() ^ this.parameters.hashCode() ^ this.options.hashCode();
+	}
 }

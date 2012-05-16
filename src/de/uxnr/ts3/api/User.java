@@ -18,7 +18,7 @@ public class User implements Serializable {
 	
 	@Override
 	public int hashCode() {
-		return this.sq.hashCode() ^ (int)User.serialVersionUID;
+		return this.getClass().hashCode() ^ this.getClientUniqueIdentifier().hashCode();
 	}
 	
 	public String getClientUniqueIdentifier() {

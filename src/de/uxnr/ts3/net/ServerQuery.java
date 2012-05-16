@@ -47,7 +47,7 @@ public class ServerQuery implements Serializable {
 	}
 	
 	public int hashCode() {
-		return this.socket.getLocalPort() ^ (int)ServerQuery.serialVersionUID;
+		return this.getClass().hashCode() ^ this.socket.hashCode();
 	}
 	
 	private void writeLine(String line) throws IOException {

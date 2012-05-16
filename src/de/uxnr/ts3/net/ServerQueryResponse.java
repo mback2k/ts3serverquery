@@ -57,4 +57,8 @@ public class ServerQueryResponse {
 	public StringMap[] getResponse() {
 		return this.response;
 	}
+
+	public int hashCode() {
+		return this.getClass().hashCode() ^ this.sq.hashCode() ^ this.error.hashCode() ^ this.response.hashCode();
+	}
 }
