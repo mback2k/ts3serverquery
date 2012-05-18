@@ -6,13 +6,13 @@ public class ServerQueryResponse {
 	private ServerQuery sq;
 	private StringMap error = null;
 	private StringMap[] response = null;
-	
+
 	public ServerQueryResponse(ServerQuery sq, String response) {
 		this.sq = sq;
 		this.parseResponse(response);
 	}
-	
-	private void parseResponse(String response) {	
+
+	private void parseResponse(String response) {
 		String[] line = response.split("\n");
 		if (line.length > 1) {
 			String[] list = line[0].split("\\|");
@@ -25,14 +25,14 @@ public class ServerQueryResponse {
 				}
 			}
 		}
-		
-		String[] error = line[line.length-1].split(" ");
+
+		String[] error = line[line.length - 1].split(" ");
 		this.error = new StringMap();
 		for (int i = 0; i < error.length; i++) {
 			this.parseValue(this.error, error[i]);
 		}
 	}
-	
+
 	private void parseValue(StringMap map, String value) {
 		String[] values = value.split("=", 2);
 		if (values.length == 2) {
@@ -45,15 +45,15 @@ public class ServerQueryResponse {
 	public ServerQueryError throwError() {
 		throw new ServerQueryError(Integer.parseInt(this.error.get("id")), this.error.get("msg"));
 	}
-	
+
 	public boolean isError() {
 		return !this.error.get("id").equals("0");
 	}
-	
+
 	public StringMap getError() {
 		return this.error;
 	}
-	
+
 	public StringMap[] getResponse() {
 		return this.response;
 	}
